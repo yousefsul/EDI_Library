@@ -2,6 +2,7 @@ import os
 
 import shortuuid
 
+from Edi_Library.connectMongoDB import ConnectMongoDB
 from Edi_Library.main_parser import MainParser
 
 
@@ -36,6 +37,7 @@ class Parse837(MainParser):
                 }
             }
         }
+        self.__connection = ConnectMongoDB()
         for i in range(len(self.edi_file_info)):
             i = 0
             self.extract_data()
@@ -46,6 +48,11 @@ class Parse837(MainParser):
                 self.__bulid_st_dict(self.edi_parsed[self.segment])
             else:
                 self.bulid_main_dict()
+        self.extract_index_data()
+        self.__connection.connect_to_collection('837_dict_coll')
+        self.__connection.insert_to_main_collection(self.edi_parsed)
+        self.__connection.connect_to_index_collection('index_coll')
+        self.__connection.insert_to_index_collection(self.index_837)
 
     def __bulid_se_dict(self, param):
         for i in range(len(self.edi_file_info)):
