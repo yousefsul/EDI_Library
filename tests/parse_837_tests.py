@@ -9,8 +9,7 @@ class MyTestCase(unittest.TestCase):
     def test_file_exists(self):
         if os.path.exists(edi_file_path):
             self.assertEqual(True, True)
-        else:
-            self.assertEqual(False, True)
+
 
     def test_final_result(self):
         with open(edi_file_path, 'r') as edi_f:
