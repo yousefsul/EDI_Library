@@ -1,15 +1,22 @@
-# Always prefer setuptools over distutils
-from setuptools import setup
+from setuptools import setup, find_packages
 
-# To use a consistent encoding
+from codecs import open
+from os import path
 
+HERE = path.abspath(path.dirname(__file__))
+
+with open(path.join(HERE, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
 
 setup(
     name="Edi_Library",
     version="0.1.0",
     description="EDI library",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="",
     author="Yousef Suliman",
-    author_email="",
+    author_email="yousefsuliman50@gmail.com",
     license="MIT",
     classifiers=[
         "Intended Audience :: Developers",
@@ -20,8 +27,9 @@ setup(
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
+        "Operating System :: OS Independent"
     ],
-    packages=["Edi_Library"],
+    packages=["medium_multiply"],
     include_package_data=True,
-    install_requires=["shortuuid"]
+    install_requires=[]
 )
