@@ -29,7 +29,7 @@ setup(
         "Programming Language :: Python :: 3.9",
         "Operating System :: OS Independent"
     ],
-    packages=["medium_multiply"],
+    packages=["Edi_Library"],
     include_package_data=True,
     install_requires=[]
 )
