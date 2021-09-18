@@ -9,6 +9,7 @@ class Main:
         self.__edi_file = edi_file
         shutil.move(self.__edi_file, '../edi_files/')
         self.__parse_file()
+        print("Complete")
 
     def __parse_file(self):
         self.__edi_files = glob.glob('../edi_files/*.*')
